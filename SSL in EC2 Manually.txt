@@ -13,9 +13,9 @@ sudo yum-config-manager --enable epel
 
 sudo yum install certbot python2-certbot-apache -y
 #Request and install SSL certificate 
-sudo certbot --apache
 
 sudo vi /etc/httpd/conf.d/vhost.conf 
+
 in here 
 From
 <VirtualHost *:80>
