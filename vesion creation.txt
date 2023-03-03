@@ -1,0 +1,22 @@
+
+sudo su 
+cd /var/app/current/
+rm -rf /var/app/current/onlineexam/storage/logs/*
+rm -rf /var/app/current/onlineexam/bootstrap/cache/*
+zip -r uca-talent-laravel_21-02-2023.zip * .[^.]*
+sudo aws s3 --region ap-south-1 cp /var/app/current/uca-talent-laravel_21-02-2023.zip s3://elasticbeanstalk-autodeploy-mum/uca-talent-laravel_21-02-2023.zip
+ 
+automator ec2 - ec2-52-77-217-207.ap-southeast-1.compute.amazonaws.com
+
+sudo aws elasticbeanstalk create-application-version --application-name ucanassess-classic --version-label uca-talent-laravel_21-02-2023 --source-bundle S3Bucket=elasticbeanstalk-autodeploy-mum,S3Key=uca-talent-laravel_21-02-2023.zip --region ap-south-1
+
+
+
+
+
+
+Command to zip the entire current folder of the ec2 instance:
+
+sudo su
+cd /var/app/current/
+zip -r name_date.zip * .[^.]*
