@@ -15,7 +15,7 @@ sudo aws elasticbeanstalk create-application-version --application-name ucanasse
 
 
 
-Command to zip the entire current folder of the ec2 instance:
+Command to zip the entire current folder of the ec2 instance:-
 
 sudo su
 cd /var/app/current/
