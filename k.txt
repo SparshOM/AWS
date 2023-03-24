@@ -1,0 +1,25 @@
+install aws cli or use CloudShell
+
+# To create a Stream
+aws kinesis create-stream --stream-name SparshTest
+
+# To list all data streams 
+aws kinesis list-streams
+
+# To put a Record in data stream  (cmd- put-record)
+aws kinesis put-record --stream-name SparshTest --partition-key value1 --data "testdata" --cli-binary-format raw-in-base64-out
+
+# To Get the Record  (cmd- GetShardIterator)
+aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON --stream-name SparshTest
+
+# Change shardId-000000000000 with your shardId-000000000005
+# We will get "ShardIterator": "AAAAAAAAAAHSywljv0zEgPX4N............="
+
+# Copy ths cmd with your ShardIterator
+aws kinesis get-records --shard-iterator AAAAAAAAAAHSywljv0zEgPX4..................=
+
+# You will get your Records
+# To Get the Record we can also run cmd below with our SharedID and Stream Name
+
+SHARD_ITERATOR=$(aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON --stream-name Foo --query 'ShardIterator') aws kinesis get-records --shard-iterator $SHARD_ITERATOR
+
