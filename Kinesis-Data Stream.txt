@@ -6,6 +6,9 @@ aws kinesis create-stream --stream-name SparshTest
 # To list all data streams 
 aws kinesis list-streams
 
+# To describe stream
+aws kinesis describe-stream-summary --stream-name SparshTest
+
 # To put a Record in data stream  (cmd- put-record)
 aws kinesis put-record --stream-name SparshTest --partition-key value1 --data "testdata" --cli-binary-format raw-in-base64-out
 
@@ -21,5 +24,8 @@ aws kinesis get-records --shard-iterator AAAAAAAAAAHSywljv0zEgPX4...............
 # You will get your Records
 # To Get the Record we can also run cmd below with our SharedID and Stream Name
 
-SHARD_ITERATOR=$(aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON --stream-name Foo --query 'ShardIterator') aws kinesis get-records --shard-iterator $SHARD_ITERATOR
+SHARD_ITERATOR=$(aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON --stream-name Foo --query 'ShardIterator') 
+aws kinesis get-records --shard-iterator $SHARD_ITERATOR
 
+# To delete shard
+aws kinesis delete-stream --stream-name SparshTest
