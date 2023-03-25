@@ -1,5 +1,5 @@
 sudo amazon-linux-extras install epel -y
 sudo yum install stress -y
 
-CMD to activate stress-
+CMD to activate stress on EC2-
 stress -c 4
