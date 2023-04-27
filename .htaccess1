@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^subdomain.domain.com$
+RewriteRule (.*) https://subdomain.domain.com/sail/secure?app_id=UElZMDAwMDAwMQ==+
+
+#RewriteCond %{HTTP_HOST} ^nitttr.domain.com$
+#RewriteRule (.*) https://nitttr.domain.com/recruit/public/secure?app_id=UElZMDAwMDAwOA==
+
