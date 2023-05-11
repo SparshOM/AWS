@@ -5,3 +5,5 @@ aws s3 cp s3://mybucket/test.txt s3://mybucket/test2.txt --acl public-read-write
 Setting the Access Control List (ACL) while copying an S3 object
 
 aws s3 sync s3://sparshtest/path/ s3://djkahs/
+
+aws s3 rm s3://sparshtest/12345678 --recursive 
