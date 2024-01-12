@@ -6,7 +6,7 @@ rm -rf /var/app/current/onlineexam/bootstrap/cache/*
 zip -r version-name.zip * .[^.]*
 sudo aws s3 --region ap-south-1 cp /var/app/current/version-name.zip s3://elasticbeanstalk-autodeploy-mum/version-name.zip
  
-automator ec2 - ec2-52-00-000-207.ap-southeast-1.compute.amazonaws.com
+automator ec2 - ec2-DNS
 
 sudo aws elasticbeanstalk create-application-version --application-name testapp --version-label version-name --source-bundle S3Bucket=elasticbeanstalk-autodeploy-mum,S3Key=version-name.zip --region ap-south-1
 
